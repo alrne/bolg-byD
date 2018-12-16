@@ -7,7 +7,7 @@ def getDataUri(data):
     password = data.get('password') or '1234'
     host = data.get('host') or 'localhost'
     port = data.get('port') or '3306'
-    database = data.get('database') or 'exam'
+    database = data.get('database') or 'test'
     return "{}+{}://{}:{}@{}:{}/{}" .format(dialect,driver,name,password,host,port,database)
 
 class Config():
@@ -17,9 +17,9 @@ class Config():
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SESSION_TYPE = 'redis'
     # 配置邮箱
-    MAIL_SERVER = 'smtp.163.com'
-    MAIL_USERNAME = '13614872486@163.com'
-    MAIL_PASSWORD = 'alren0308'
+    MAIL_SERVER = ''
+    MAIL_USERNAME = ''
+    MAIL_PASSWORD = ''
 
 class DevelopConfig(Config):
     DEBUG = True
@@ -30,7 +30,7 @@ class DevelopConfig(Config):
         'password' :  '1234',
         'host'     :  'localhost',
         'port'     :  '3306',
-        'database' :  'exam',
+        'database' :  'test',
     }
     SQLALCHEMY_DATABASE_URI = getDataUri(database_info)
 
